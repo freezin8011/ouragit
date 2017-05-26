@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  root 'home#lending'
+  
   devise_for :users
+  
+  
   get 'mail/new'
 
   post 'mail/create'
 
-  root 'home#lending'
+  
   
   get 'home/lending'
 
