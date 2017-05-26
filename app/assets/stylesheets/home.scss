@@ -1,0 +1,95 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+    font-size:10px; /*irem == 14px*/
+    line-height: 1.6; /*줄간격 line-height은 배율값으로 적어준다 */
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    color: #181818;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+a:link { color: black; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+a:hover { color: black; text-decoration: underline;}
+
+.brand {
+    margin: 0;
+    font-size: 1.3333rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.brand a {
+    font-size: 2rem;
+    font-family: inherit;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    font-size: 0.93333rem;
+    font-weight: 700;
+    letter-spacing: 3px; /* 자간 */
+    color: #181818
+}
+
+.navbar-light .nav-item.active .nav-link {
+    color: #ff5216;
+}
+
+.header {
+    height: 300px;
+    background-image: linear-gradient(to bottom, transparent 0%, #fff 100%), url( "lending.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:center center;
+}
+
+.intro {
+    display:table;
+}
+
+#create-button {
+    font-size: 1.3333rem;
+    padding-left:40px !important;
+    padding-right:40px !important;
+}
+
+// 페이징 css
+.page-item.active .page-link {
+    background-color: gray !important;
+    border-color: gray !important;
+}
+
+// typed.js css
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}

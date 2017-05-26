@@ -1,0 +1,41 @@
+<div class="row justify-content-md-center">
+  <div class="col-10 ">
+    <div class="row justify-content-md-end mb-4">
+      <div class="col-3 mt-4">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button">Go!</button>
+          </span>
+        </div>
+      </div>
+      <div class="col-2 mt-3 mr-4">
+        <a href="/home/new"><button type="button" class="btn btn-outline-danger" id="create-button">글쓰기</button></a>
+      </div>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr class="bg-white">
+          <th class="text-muted">제목</th>
+          <th class="text-muted">작성일</th>
+          <th class="text-muted">조회수</th>
+        </tr>
+      </thead>
+      
+      
+      <% if @every_post.nil? %>
+      <% else %>
+      <tbody>
+        <% @every_post.each do |p| %>  
+          <tr>
+            <td><a href="/info/<%= p.id %>"><%= p.title %></a></td>
+            <td class=""><%= p.created_at.+9.hour%></td>
+            <td><%= p.created_at.strftime( "%l" ) %>시</td>
+          </tr>
+        <% end %>  
+      </tbody>
+    </table>
+      <%= paginate @every_post %>
+      <% end %>
+  </div>
+</div>

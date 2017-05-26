@@ -1,0 +1,52 @@
+<h1 class="display-4">welcome to Our Agit</h1>
+<h1 class="display-4 mr-2">우리는 <span id="complete"></span></h1>
+
+<% @ranking.each do |r| %>
+  <p><%= r %></p>
+<% end %>
+
+
+<div class="row justify-content-center">
+  
+</div>  
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+      Typed.new('#complete', {
+        strings: ["20대 입니다.", "대학 재학 중입니다.", "같이 이야기 해봅시다."],
+        typeSpeed: 200,
+        startDelay: 0,
+      	// backspacing speed
+      	backSpeed: 50,
+      	// shuffle the strings
+      	shuffle: false,
+      	// time before backspacing
+      	backDelay: 600,
+      	// Fade out instead of backspace (must use CSS class)
+      	fadeOut: false,
+      	fadeOutClass: 'typed-fade-out',
+      	fadeOutDelay: 500, // milliseconds
+      	// loop
+      	loop: true,
+      	// null = infinite
+      	loopCount: null,
+      	// show cursor
+      	showCursor: true,
+      	// character for cursor
+      	cursorChar: "|",
+      	// attribute to type (null == text)
+      	attr: null,
+      	// either html or text
+      	contentType: 'html',
+      	// call when done callback function
+      	callback: function() {},
+      	// starting callback function before each string
+      	preStringTyped: function() {},
+      	//callback for every typed string
+      	onStringTyped: function() {},
+      	// callback for reset
+      	resetCallback: function() {}
+      });
+  });
+</script>

@@ -1,0 +1,26 @@
+<div class="row justify-content-md-center">
+  <div class="col-8 ">
+    <form action="/mail/create" method="post">
+      
+      <div class="form-group row justify-content-center mt-4">
+        <label for="exampleInputTitle1">제목</label>
+        <input type="text" class="form-control" name="title" id="exampleInputTitle1" placeholder="제목을 입력해주세요">
+      </div>
+      
+      <div class="form-group row justify-content-center mt-4">
+        <label for="exampleInputEmail1">메일 주소</label>
+        <input type="email" class="form-control" name="mail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="본인의 메일 주소를 입력해주세요">
+      </div>
+      <small id="emailHelp" class="form-text text-muted">반드시 본인의 메일 주소를 입력해주세요.</small>
+      
+      <div class="form-group row justify-content-center mt-4">
+        <label for="exampleTextarea">내용</label>
+        <textarea class="form-control" id="exampleTextarea" name="content" rows="7" placeholder="보내고 싶은 이야기나, 나누고 싶은 이야기들을 입력해주세요"></textarea>
+      </div>
+      
+      <div class="form-group row justify-content-center my-4">
+        <input class="btn btn-outline-danger"  type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+</div>
