@@ -14,26 +14,30 @@
     </div>
     <div class="row justify-content-center">
       <div class="field col-6">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
+        <div class="etc-info">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <p>최소 6자</p>
+          <% end %>
+        </div>
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="field col-6">
-        <%= f.label :password_confirmation %><br />
+        <div class="etc-info">
+          <%= f.label :password_confirmation %>
+        </div>
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center sign-up">
       <div class="actions">
         <%= f.submit:Sign_up, class:"btn btn-outline-danger" %>
       </div>
     </div>
     <% end %>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center etc-info">
       <%= render "devise/shared/links" %>
     </div>
   </div>

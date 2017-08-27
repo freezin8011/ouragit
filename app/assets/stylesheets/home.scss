@@ -65,6 +65,34 @@ a:hover { color: black; text-decoration: underline;}
     padding-right:40px !important;
 }
 
+.container{
+    min-height:400px;
+}
+
+.lending-text{
+    color:#C56F7F;
+}
+
+#complete{
+    color:#C56F7F;
+}
+
+.lending-box{
+    border:solid #FDE1EA;
+    border-width:5px 0px 5px 0px;
+    padding-top:20px;
+    padding-bottom:10px;
+    margin-top:40px;
+}
+
+.crew{
+    color:#DEDEDE;
+}
+
+footer p{
+    color:#C56F7F;
+}
+
 // 페이징 css
 .page-item.active .page-link {
     background-color: gray !important;
@@ -74,6 +102,7 @@ a:hover { color: black; text-decoration: underline;}
 // typed.js css
 .typed-cursor{
     opacity: 1;
+    color:#C56F7F;
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
@@ -92,4 +121,38 @@ a:hover { color: black; text-decoration: underline;}
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
+}
+
+.nav-link{
+    background-color:white;
+    padding-left: 10px !important;
+    opacity: 0.8;
+}
+
+@media (max-width: 500px) {
+    footer p{
+        font-size:5px;
+    }
+    
+    .lending-box h1{
+        font-size: 20px;
+    }
+
+   .container{
+        min-height:250px;
+    }
+    
+    .btn-outline-danger{
+        font-size: 10px;
+    }
+    
+    .etc-info{
+        margin-top:20px;
+        font-size:10px;
+        margin-bottom:20px;
+    }
+    
+    .sign-up{
+        margin-top:20px;
+    }
 }

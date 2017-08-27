@@ -1,11 +1,10 @@
 require 'mailgun' 
 class MailController < ApplicationController
-  
   def new
-    unless user_signed_in?
-      redirect_to "/users/sign_in"
-      flash[:error] = "You must be logged in to access this section"
-    end
+    # unless user_signed_in?
+    #   redirect_to "/users/sign_in"
+    #   flash[:error] = "You must be logged in to access this section"
+    # end
   end
 
   def create

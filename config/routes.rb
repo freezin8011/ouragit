@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'home#lending'
   
   devise_for :users
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   post 'mail/create'
 
   
+  get 'therubyracer'
   
   get 'home/lending'
 
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
 
   get 'home/mail'
   
-  post 'comment/reply_write'
+  post 'reply/reply_write'
   
   # update
   get 'update_view/:id' => 'home#update_view'
@@ -34,11 +36,11 @@ Rails.application.routes.draw do
   get 'destroy/:id' => 'home#destroy'
   
    # 댓글update
-  get 'reply_update_view/:id' => 'comment#reply_update_view'
-  post 'reply_real_update/:id' => 'comment#reply_real'
+  get 'reply_update_view/:id' => 'reply#reply_update_view'
+  post 'reply_real_update/:id' => 'reply#reply_real'
   
   # 댓글_삭제기능
-  get 'reply_destroy/:id' => 'comment#reply_destroy'
+  get 'reply_destroy/:id' => 'reply#reply_destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

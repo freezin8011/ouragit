@@ -1,9 +1,22 @@
-<h1 class="display-4">welcome to Our Agit</h1>
-<h1 class="display-4 mr-2">우리는 <span id="complete"></span></h1>
+<div class="row ">
+  <div class="col-2"></div>
+  <div class="col-8 justify-content-left lending-box">
+    <h1 class="lending-text display-4">안녕하세요.</h1>
+    <h1 class="lending-text display-4 mr-2">우리는 <span id="complete"></span></h1>
+  </div>
+  <div class="col-2"></div>
+</div>
+<div class="row ">
+  <div class="col-2"></div>
+  <div class="col-8 justify-content-center mt-2">
+    <p class="text-center crew">-친구네 자취방 제작진-</p>
+  </div>
+</div>
+    <% @ranking.each do |r| %>
+      <p><%= r %></p>
+    <% end %>
+  
 
-<% @ranking.each do |r| %>
-  <p><%= r %></p>
-<% end %>
 
 
 <div class="row justify-content-center">
@@ -14,7 +27,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function(){
       Typed.new('#complete', {
-        strings: ["20대 입니다.", "대학 재학 중입니다.", "같이 이야기 해봅시다."],
+        strings: ["20대 입니다", "대학생이죠", "떠드는 게 좋습니다", "의견을 듣고 싶어요", " 간곡히 부탁드려요", "소통할 준비 ok!"],
         typeSpeed: 200,
         startDelay: 0,
       	// backspacing speed

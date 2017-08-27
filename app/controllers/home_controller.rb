@@ -1,5 +1,6 @@
 require 'open-uri'
 class HomeController < ApplicationController
+  before_action :authenticate_user!, except: [ :lending, :list, :info ]
   def lending
     @ranking = Ranking.all
   end
@@ -7,27 +8,30 @@ class HomeController < ApplicationController
   
 
   def list
-    @every_post = Post.order("id desc").page(params[:page]).per(10)
+    @every_post = Post.all
+    if params[:search]
+      @every_post = Post.search(params[:search]).order("id desc").page(params[:page]).per(10)
+    else
+      @every_post = Post.order("id desc").page(params[:page]).per(10)
+    end
   end
   
+  
   def new
-    unless user_signed_in?
-      redirect_to "/users/sign_in"
-      flash[:error] = "You must be logged in to access this section"
-    end
+    # unless user_signed_in?
+    #   redirect_to "/users/sign_in"
+    # end
   end
 
   def create
-    @title = params[:title]
-    @content = params[:content]
-    
+
      # 포스트란 데이터 베이스를 새로 만들자, 그리고 new_post 에 저장해놓자.
     new_post = Post.new
     
     # new_post에 타이틀은 @title 라고 해놓자
-    new_post.title = @title
-    
-    new_post.content = @content
+    new_post.title = params[:title]
+    new_post.content = params[:content]
+    new_post.written_by = params[:written_by]
     new_post.save
     
     redirect_to "/home/list"
@@ -57,7 +61,10 @@ class HomeController < ApplicationController
   
   
   def info
-    @one_post = Post.find(params[:id])
+      @one_post = Post.find(params[:id])
+      
+      @one_post.hits = @one_post.hits + 1
+      @one_post.save
   end
   
 

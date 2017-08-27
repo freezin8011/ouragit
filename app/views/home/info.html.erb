@@ -1,50 +1,67 @@
 <div>
     <div class="row justify-content-md-center">
-      <h3><%= @one_post.title %></h3>
+      <h1 class="display-4 mt-2"><%= @one_post.title %></h1>
     </div>
     <hr>
     <div class="row justify-content-md-end">
-        <div class="col-2"><%= @one_post.created_at.+9.hour %></div>
-        <div class="col-2"><%= @one_post.created_at.+9.hour %></div>
+        <div class="col-2">조회수 : <%= @one_post.hits %></div>
+        <div class="col-2"><%= (@one_post.created_at.+9.hour).strftime("%m월 %d일 %H시") %></div>
     </div>
     <div class="row justify-content-md-center">
-      <div class="col-10">
-        <p><%= @one_post.content %></p>
+      <div class="col-10 my-5">
+        <pre><p class="lead"><%= @one_post.content %></p></pre>
       </div>
     </div>
+    
+    <% if current_user.email == @one_post.written_by %>
     <div class="row justify-content-md-end">
       <div class="col-1"><a href="/update_view/<%= @one_post.id %>"><h3>수정</h3></a></div>
       <div class="col-1"><a href="/destroy/<%= @one_post.id %>" data-method="get" data-confirm="댓글을 삭제하시겠습니까?"><h3>삭제</h3></a></div>
       <div class="col-2"><a href="/home/list"><h3>목록으로</h3></a></div>
     </div>
+    <% else %>
+    <div class="row justify-content-md-end">
+      <div class="col-2"><a href="/home/list"><h3>목록으로</h3></a></div>
+    </div>
+    <% end %>
     <hr>
     <div class="reply row justify-content-center">
       <div class="col-10">
-        <form action="/home/reply_write" method="POST">
+        <form action="/reply/reply_write" method="POST">
           <div class="row pl-4">
             <label for="exampleTextarea">댓글</label>
           </div>
           <input type="hidden" value="<%= @one_post.id %>" name="post_id">
           <div class="form-group">
-              <textarea class="form-control" rows="2" id="content" name="content" placeholder="내용을 입력하세요"></textarea>
+              <textarea class="form-control" rows="2" id="content reply" name="content" placeholder="내용을 입력하세요"></textarea>
               <!--name=""은 비둘기 이름-->
           </div>
           <div class="form-group row justify-content-end my-2">
-            <input class="btn btn-outline-danger"  type="submit" value="Submit">
+            <input class="btn btn-outline-danger"  type="submit" value="댓글 달기">
           </div>
         </form>
         <br>
         <% @one_post.replies.order("id desc").each do |r| %>
-          <div class="row justify-content-between">
-            <div class="ml-4"><%= r.content %></div>
+          <hr>
+          <div class="row justify-content-between my-4">
+            <div class="ml-4"><pre><p><%= r.content %></p></pre></div>
             <div class="row">
-              <div class="col-6"><%= r.created_at.+9.hour %></div>
-              <div class="col-3"><a href="/comment/reply_update_view/<%= r.id %>"><p>수정</p></a></div>
-              <div class="col-3"><a href="/comment/reply_destroy/<%= r.id %>" data-method="post" data-confirm="댓글을 삭제하시겠습니까?"><p>삭제</p></a></div>
+              <div class="col-6"><%= (r.created_at.+9.hour).strftime("%d월 %m일 %H시 %M분") %></div>
+              <div class="col-3"><a href="/reply_update_view/<%= r.id %>"><p>수정</p></a></div>
+              <div class="col-3"><a href="/reply_destroy/<%= r.id %>" data-method="post" data-confirm="댓글을 삭제하시겠습니까?"><p>삭제</p></a></div>
             </div>
           </div>
-          <hr>
         <% end %>      
       </div>
     </div>
 </div>
+
+<!--textarea 줄바꿔서 출력-->
+<script>
+  $('#reply').val().replace(/\n/g, "<br>")
+</script>
+<!--< if @one_post.email == current_user %>-->
+<!--  <h1>일치한다!!</h1>-->
+<!--< else %>-->
+<!--  <h1>꺼져</h1>-->
+<!--< end %>-->

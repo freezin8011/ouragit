@@ -8,12 +8,18 @@
           
           <div class="form-group row justify-content-center my-4">
             <label for="exampleTextarea">내용</label>
-            <textarea class="form-control" id="exampleTextarea" name="content" rows="7" placeholder="내용을 입력해주세요"></textarea>
+            <textarea class="form-control" id="exampleTextarea text" name="content" rows="7" placeholder="내용을 입력해주세요"></textarea>
           </div>
           
           <div class="form-group row justify-content-center my-4">
+            <input type="hidden" name="written_by" value="<%= current_user.email %>">
             <input class="btn btn-outline-danger"  type="submit" value="Submit">
           </div>
         </form>
     </div>
 </div>
+
+<!--textarea 줄바꿔서 출력-->
+<script>
+  $('#text').val().replace(/\n/g, "<br>")
+</script>

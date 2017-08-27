@@ -4,7 +4,10 @@ class CreatePosts < ActiveRecord::Migration
       
       t.string :title
       t.string :content
+      t.string :written_by
 
+      t.integer :hits, default: 0
+  
       t.timestamps null: false
     end
   end

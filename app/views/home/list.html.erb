@@ -1,41 +1,49 @@
 <div class="row justify-content-md-center">
-  <div class="col-10 ">
+  <div class="col-1"></div>
+  <div class="col-10">
     <div class="row justify-content-md-end mb-4">
-      <div class="col-3 mt-4">
+      <div class="col- mt-4">
+        <form action="/home/list" method="get" id="search-form">
+          <div class="col- mr-4">
+            <a href="/home/new"><button type="button" class="btn btn-outline-danger" id="create-button">글쓰기</button></a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row justify-content-md-end mb-4">
+      <div class="col- mr-4">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
+          <input type="text" class="form-control" name="search" placeholder="제목 검색...">
           <span class="input-group-btn">
             <button class="btn btn-secondary" type="button">Go!</button>
           </span>
         </div>
       </div>
-      <div class="col-2 mt-3 mr-4">
-        <a href="/home/new"><button type="button" class="btn btn-outline-danger" id="create-button">글쓰기</button></a>
-      </div>
     </div>
-    <table class="table table-hover">
+    <table class="table table-hover mb-4">
       <thead>
         <tr class="bg-white">
-          <th class="text-muted">제목</th>
-          <th class="text-muted">작성일</th>
-          <th class="text-muted">조회수</th>
+          <th class="text-muted"><p class="text-center">제목</p></th>
+          <th class="text-muted"><p class="text-center">작성일</p></th>
+          <th class="text-muted"><p class="text-center">조회수</p></th>
         </tr>
       </thead>
-      
-      
-      <% if @every_post.nil? %>
-      <% else %>
-      <tbody>
-        <% @every_post.each do |p| %>  
-          <tr>
-            <td><a href="/info/<%= p.id %>"><%= p.title %></a></td>
-            <td class=""><%= p.created_at.+9.hour%></td>
-            <td><%= p.created_at.strftime( "%l" ) %>시</td>
-          </tr>
-        <% end %>  
-      </tbody>
+        <tbody>
+          <% @every_post.each do |p| %>  
+            <tr>
+              <td class="text-center"><a href="/info/<%= p.id %>"><%= p.title %></a></td>
+              <td class=""><p class="text-center"><%= (p.created_at.+9.hour).strftime("%m월 %d일") %></p></td>
+              <!--<td>< p.created_at.strftime( "%l" ) %>시</td>-->
+              <td class=""><p class="text-center"><%= p.hits %></p></td>
+            </tr>
+            <% end %>
+        </tbody>
     </table>
-      <%= paginate @every_post %>
-      <% end %>
+    <%= paginate @every_post %>
+    
   </div>
 </div>
+
+<script>
+  
+</script>
