@@ -13,7 +13,7 @@
       </div>
     </div>
     
-    <% if current_user.email == @one_post.written_by %>
+    <% if current_user == @one_post.written_by %>
     <div class="row justify-content-md-end">
       <div class="col-1"><a href="/update_view/<%= @one_post.id %>"><h3>수정</h3></a></div>
       <div class="col-1"><a href="/destroy/<%= @one_post.id %>" data-method="get" data-confirm="댓글을 삭제하시겠습니까?"><h3>삭제</h3></a></div>
