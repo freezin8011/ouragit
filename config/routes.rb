@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   get 'mail/new'
 
   post 'mail/create'
-
-  
-  get 'therubyracer'
   
   get 'home/lending'
 
